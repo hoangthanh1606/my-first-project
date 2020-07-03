@@ -1,0 +1,24 @@
+*chia mạng con (subnet):
+- vấn đề đặt ra: giả sử một công ty A được cấp một đường mạng 187.45.0.0/16 -> có nhu cầu chia thành nhiều mạng con
+để giảm số lượng nút mạng (node) trên một mạng. Mục đích:  để quản trị dễ bảo trì, tăng tính bảo mật
+-qui tắc:  mượn các bit đầu trong host id dể làm net id. Số lượng mạng con= 2^n với n là số bit mượn từ từ phần host ID
+- lên kế hoạch: cần chú ý số mạng con cần chia và số nút mạng trong mỗi mạng con.
+vd1: giả sử một công ty A được cấp một đường mạng 187.45.0.0/16. Công ti muốn chia thành 10 subnet trong đó có 3 subnet
+có 100 PCs, 4 subnet có 255 PCs, 3 subnet có 500 Pcs. hỏi: cần dùng bao nhiêu bit để chia subnet, liệt kê subnet.
+-> mượn 4 bit. Các subnet:
+187.45.0.0/20
+187.45.16.0/20
+184.45.32.0/20
+184.45.48.0/20
+....
+184.45.240.0/20
+vd2: Công ti B được cấp đường mạng 192.168.1.0. Công ti muốn chia thành 5 subnet, trong đó mỗi subnet có 30 modes. Hỏi:
+cần dùng bao nhiêu bit để chia subnet, liệt kê các subnet, liệt kê các IP thuộc subnet cuối.
+-> mượn 3 bit
+các subnet: 192.168.1.0/27
+                               1.32/27
+                               1.64/27
+                               1.96/27
+                  .......................
+                  192.168.1.224/27
+* bài tập ip/subneting
